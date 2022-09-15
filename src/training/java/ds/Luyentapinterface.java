@@ -6,4 +6,5 @@ public interface Luyentapinterface {
 	default void xuat() {
 		System.out.println("tong cua ban do");
 	}
+	
 }

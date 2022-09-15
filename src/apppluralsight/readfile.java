@@ -15,5 +15,6 @@ public class readfile {
 		BufferedReader reader = Files.newBufferedReader(path);
 		String line = reader.readLine();
 		System.out.println(line);
+		
 	}
 }
