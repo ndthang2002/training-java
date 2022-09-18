@@ -1,101 +1,95 @@
 package datastructures;
 
-import java.util.Iterator;
-import java.util.ListIterator;
+import java.io.IOException;
 
-public class ArrayList {
-	public static void main(String[] args) {
-		// khoi tao arraylist
-		java.util.ArrayList<String> list = new java.util.ArrayList<>();
-		list.add("java");
-		list.add("data structures");
-		list.add("c#");
-		list.add("python");
-		System.out.println("cac phan tu co trong list la : ");
-		System.out.println(list);
+public class ArrayList<T> implements List<T> {
+  private T[] array;
+	private int index;
 
-//su dung for de hien thi cac phan tu
-		System.out.println("su dung for thuong :");
-		for (int i = 0; i < list.size(); i++) {
+	//constructor
+	public ArrayList(){
+	  this(10);
+	}
+	public ArrayList(int capacity) {
+	  if(capacity<0) {
+	    throw new IllegalArgumentException("kich thuoc khong duoc am"+capacity);
+	  }
+	  array = (T[]) new Object[capacity];
+	  index=0;
+	}
+	@Override
+	public int size() {
+		// TODO Auto-generated method stub
+		return index;
+	}
 
-			System.out.println(list.get(i));
-		}
-//su dung foreach
-		System.out.println("su dung for cai tien :");
-		for (String ls : list) {
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+	  array[index]=null;
+	}
 
-			System.out.println(ls);
-		}
+	@Override
+	public boolean add(T obj) {
+		// TODO Auto-generated method stub
+		array[index++] = obj;
+		return true;
+	}
 
-//su dung iterator
-		System.out.println("su dung interator :");
-		Iterator<String> listinterator = list.iterator();
-		while (listinterator.hasNext()) { // kiem tra xem co phan tu tiep theo ko
-			System.out.println(listinterator.next()); // in ra phan tu tiep theo
-		}
-//su dung listInterator
-		System.out.println("su dung listInterrator :");
-		ListIterator<String> iterator = list.listIterator();
-		while (iterator.hasNext()) {
-			System.out.println(iterator.next());
-		}
+	@Override
+	public void addAll(T[] obj) {
+	  for(T o :obj) {
+	    add(o);
+	  }
+		// TODO Auto-generated method stub
 
-// su dung addAll
-		System.out.println("");
-		System.out.println("vd su dung phuong thuc addAll :");
-		java.util.ArrayList<String> listA = new java.util.ArrayList<String>();
-		listA.addAll(list);
-		System.out.println(listA);
+	}
 
-// su dung retainAll
-		System.out.println("");
-		System.out.println("vd su dung phuong thuc retainAll :");
-		// khoi tao list b
-		java.util.ArrayList<String> listB = new java.util.ArrayList<>();
-		listB.add("java");
-		// xoa nhung phan tu khong thuoc listB khoi listA
-		listA.retainAll(listB);
-		System.out.println("listA  :\n" + listA);
+	@Override
+	public boolean remove(T obj) {
+		// TODO Auto-generated method stub
+	  int pos = findPos(obj);
+	  removeAt(pos);
+		return true;
+	}
 
-// su dung removeAll
-		System.out.println("");
-		System.out.println("vd su dung phuong thuc removeAll :");
-		// xoa nhung phan tu thuoc listB khoi list (java)
-		list.removeAll(listB);
-		System.out.println("listA :" + list);
+	@Override
+	public T removeAt(int pos) {
+		// TODO Auto-generated method stub
+	  if(pos >= index || pos <0) {
+	    throw new IndexOutOfBoundsException();
+	  }
+	  T Val = array[pos];
+	  while(pos<index) {
+	    array[pos] = array[pos + 1];
+	    pos++;
+	  }
+	  index--;
+		return Val;
+	}
 
-// su dung phuong thuc get de truy cap phan tu
+	@Override
+	public T get(int pos) {
+		// TODO Auto-generated method stub
+		return array[pos];
+	}
 
-		System.out.println("phan tu thu 2 cua list : \n" + list.get(2));
+	@Override
+	public void set(int pos, T obj) {
+	  array[pos]=obj;
+		// TODO Auto-generated method stub
 
-// su dung set de cap nhat lai phan tu trong list
-		list.set(2, "react native");
-		System.out.println("thay doi phan tu thu 2 :");
-		System.out.println(list.get(2));
-		System.out.println(list);
+	}
 
-// su dung contains de tim kiem phan tu trong list 
-
-		System.out.println(" kiem tra ton tai hay khong :" + list.contains("react nativee"));
-
-// su dung indexof tim kiem vi tri dau tien 
-
-		System.out.println("kiem tra data structures ton tai hay khong : " + list.indexOf("react native"));
-//su dung remove theo chi so hoac ten phan tu
-		System.out.println("so phan tu list dau : " + list);
-		list.remove(1);
-		System.out.println("sau khi xoa phan tu index=1 : " + list);
-		list.remove("react native");
-		System.out.println("sau khi xoa phan tu react navtive : " + list);
-
-//su dung clear 
-		System.out.println("so phan tu list dau" + list);
-		System.out.println("cac phan tu list ban dau " + list.size());
-		// clear list
-		list.clear();
-		System.out.println("so phan tu list dau" + list);
-		System.out.println("cac phan tu list ban dau " + list.size());
-
+	@Override
+	public int findPos(T obj) {
+	  for(int pos=0;pos<index;pos++) {
+	    if(array[pos].equals(obj)) {
+	      return pos;
+	    }
+	  }
+		// TODO Auto-generated method stub
+		return -1;
 	}
 
 }
