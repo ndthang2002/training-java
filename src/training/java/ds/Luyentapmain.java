@@ -1,22 +1,22 @@
 package training.java.ds;
 
-public class Luyentapmain {
+public class LuyenTapMain {
 
 	public static void main(String[] args) {
 		
 		// interface
-		Luyentap1 lt = new Luyentap1();
+		LuyenTapD lt = new LuyenTapD();
 		lt.tinhtong();
 		lt.xuat();
-		Luyentap2 lt2 = new Luyentap2();
+		LuyenTapC lt2 = new LuyenTapC();
 		lt2.tinhtong();
 		lt2.xuat();
 		
 		// abstract
-	Luyentap_ab1 ab = new Luyentap_ab1();
+	LuyenTapA ab = new LuyenTapA();
 	ab.tinhtong();
 	ab.tinhhieu();
-	Luyentap_ab2 ab2 = new Luyentap_ab2() {};
+	LuyenTapB ab2 = new LuyenTapB() {};
 	ab2.sleep();
 		
 	}

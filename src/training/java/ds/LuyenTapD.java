@@ -1,6 +1,6 @@
 package training.java.ds;
 
-public class  Luyentap1 implements Luyentapinterface {
+public class  LuyenTapD implements LuyenTapI {
 int a=5;
 int b=4;
 int tong ;
@@ -16,7 +16,7 @@ int tong ;
 	@Override
 		public void xuat() {
 			// TODO Auto-generated method stub
-			Luyentapinterface.super.xuat();
+			LuyenTapI.super.xuat();
 		}
 
 }

@@ -1,6 +1,6 @@
 package training.java.ds;
 
-public class Luyentap_ab1 extends Luyentap_abstract {
+public class LuyenTapA extends LuyenTapE {
 // kế thừa từ abstract class không có từ khóa abtract thì phải định nghĩa lại hàm (tinhtong);
  int a=5;
  int b=5;

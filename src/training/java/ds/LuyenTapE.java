@@ -1,6 +1,6 @@
 package training.java.ds;
 
-public abstract class Luyentap_abstract {
+public abstract class LuyenTapE {
 
 	abstract void tinhtong();
 	void tinhhieu() {

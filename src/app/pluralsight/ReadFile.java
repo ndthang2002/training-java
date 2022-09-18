@@ -1,4 +1,4 @@
-package apppluralsight;
+package app.pluralsight;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,7 +7,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class readfile {
+public class ReadFile {
 
 	public static void main(String[] args) throws IOException {
 		

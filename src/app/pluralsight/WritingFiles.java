@@ -1,4 +1,4 @@
-package apppluralsight;
+package app.pluralsight;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.util.List;
 
 import javax.swing.plaf.FileChooserUI;
 
-public class writingFiles {
+public class WritingFiles {
 
 	public static void main(String[] args) throws IOException  {
 		

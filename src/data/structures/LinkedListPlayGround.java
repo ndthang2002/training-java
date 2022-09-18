@@ -1,10 +1,25 @@
-package datastructures;
+package data.structures;
 
 import java.util.Iterator;
 import java.util.ListIterator;
 
-public class LinkedList {
+public class LinkedListPlayGround {
 public static void main(String[] args) {
+  
+  LinkedList<String> listt = new LinkedList<String>();
+  listt.add("afs");
+  listt.add("tma");
+  listt.add("kiki");
+  
+  
+  System.out.println(listt.size());
+  for(int i=0 ; i< listt.size();i++) {
+    System.out.println("phan tu thu: "+listt.get(i));
+  }
+
+  
+  
+  
 	// khai báo linkedlist  kiểu string  tên là líst
 	java.util.LinkedList<String> list = new java.util.LinkedList<String>();
 	//thêm phần tử vào list 
@@ -18,7 +33,7 @@ public static void main(String[] args) {
 	System.out.println(list);
 	
 	// sử dụng vòng foreach để hiển thị các phần tử của list
-	System.out.println("(foreach) các phần tử tron list là :");
+//	System.out.println("(foreach) các phần tử tron list là :");
 	for(String ls :list) {
 		System.out.println(ls);
 	}

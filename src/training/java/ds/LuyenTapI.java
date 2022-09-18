@@ -1,6 +1,6 @@
 package training.java.ds;
 
-public interface Luyentapinterface {
+public interface LuyenTapI {
 
 	void tinhtong();
 	default void xuat() {

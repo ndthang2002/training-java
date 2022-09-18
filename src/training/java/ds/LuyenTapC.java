@@ -1,6 +1,6 @@
 package training.java.ds;
 
-public class Luyentap2 implements Luyentapinterface{
+public class LuyenTapC implements LuyenTapI{
 
 	 int a=1;
 	 int b=3;
