@@ -91,5 +91,16 @@ public class ArrayList<T> implements List<T> {
 		// TODO Auto-generated method stub
 		return -1;
 	}
+  @Override
+  public T remove() {
+    return null;
+    // TODO Auto-generated method stub
+    
+  }
+  @Override
+  public boolean add(int index, T obj) {
+    // TODO Auto-generated method stub
+    return false;
+  }
 
 }

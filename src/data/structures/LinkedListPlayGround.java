@@ -7,15 +7,32 @@ public class LinkedListPlayGround {
 public static void main(String[] args) {
   
   LinkedList<String> listt = new LinkedList<String>();
+  LinkedList<String> lis = new LinkedList<String>();
+
   listt.add("afs");
   listt.add("tma");
+  listt.add("lof");
   listt.add("kiki");
-  
+  listt.add("sfsf");
+  listt.add("sfff");
+ 
   
   System.out.println(listt.size());
   for(int i=0 ; i< listt.size();i++) {
     System.out.println("phan tu thu: "+listt.get(i));
   }
+  
+  // chuyen listt sang arr roi add vao lis
+  String[] arrs = new String[listt.size()];
+  for(int i=0; i<listt.size();i++) {
+    arrs[i] = listt.get(i);
+  }
+  
+  lis.addAll(arrs);
+  for(int i=0 ; i< lis.size();i++) {
+    System.out.println("phan thu "+i+"cua lis :"+lis.get(i));
+  }
+  
 
   
   

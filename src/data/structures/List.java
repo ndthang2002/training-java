@@ -7,12 +7,14 @@ public interface List<T> {
   void clear();
 
   boolean add(T obj);
+  boolean add(int index,T obj);
 
   void addAll(T[] obj);
 
   boolean remove(T obj);
 
   T removeAt(int pos);
+  T remove();
 
   T get(int pos);
 
