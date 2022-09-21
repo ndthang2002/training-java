@@ -15,6 +15,7 @@ public static void main(String[] args) {
   listt.add("kiki");
   listt.add("sfsf");
   listt.add("sfff");
+  listt.add(3, "hihi");
  
   
   System.out.println(listt.size());

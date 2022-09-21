@@ -171,8 +171,7 @@ public class LinkedList<T> implements List<T> {
       currNode = currNode.getNext();
     }
     Node<T> newNode = new Node<T>(obj);
-    newNode.setNext(currNode);
-    currNode= newNode;
+    Node<T> nextNode = currNode.getNext();
     
     }
     currSize++;
