@@ -2,45 +2,50 @@ package data.structures.map;
 
 import org.junit.jupiter.api.Test;
 
-public class HashMap<Key,Value>  implements Map<Key, Value>{
+public class HashMap<Key, Value> implements Map<Key, Value> {
 
-   private Entry<Key, Value>[] arr;
-   protected int numberOfEntry;
-   protected int capacity;
-   
-   //constructor
-   public HashMap() {
-     this((int)Math.pow(2, 4));
-   }
-   
-   public HashMap(int initialCapacity) {
-        this.capacity= initialCapacity;
-        arr = new Entry[this.capacity];
-        this.numberOfEntry=0;
+  private Entry<Key, Value>[] arr;
+  protected int  numberOfEntry;
+  protected int  capacity;
+
+  // constructor
+  public HashMap() {
+    this((int) Math.pow(2, 4));
   }
-  
+
+  public HashMap(int initialCapacity) {
+    this.capacity = initialCapacity;
+    arr = new Entry[this.capacity];
+    this.numberOfEntry = 0;
+  }
+
   @Override
   public void clear() {
     // TODO Auto-generated method stub
-    arr= new Entry[this.capacity];
-    numberOfEntry=0;
+    arr = new Entry[this.capacity];
+    numberOfEntry = 0;
+
   }
 
-  // kiem tra key 
- 
+// kiem tra key ton tai ko
   @Override
   public boolean containsKey(Key key) {
     // TODO Auto-generated method stub
-    int hash= calculateHash(key);
-    return arr[hash] != null && arr[hash].getKey().equals(key);
-    
+    int hash = tinhToanHash(key);
+    if (arr[hash] == null) {
+      return false;
+    } else if (arr[hash] != null && arr[hash].getKey().equals(key)) {
+      return true;
+    }
+    return false;
   }
 
   @Override
   public boolean containsValue(Value value) {
-    for(int i=0 ;i< this.capacity;i++) {
+    // TODO Auto-generated method stub
+    for (int i = 0; i < this.numberOfEntry; i++) {
       Entry<Key, Value> entry = arr[i];
-      if (entry != null && entry.getValue().equals(value)) {
+      if (entry.getValue().equals(value)) {
         return true;
       }
     }
@@ -50,53 +55,59 @@ public class HashMap<Key,Value>  implements Map<Key, Value>{
   @Override
   public Value get(Key key) {
     // TODO Auto-generated method stub
-    int hash = calculateHash(key);
-    if(arr[hash] == null) {
+    int hash = tinhToanHash(key);
+    if (arr[hash] == null) {
       return null;
-    }else {
+    } else {
       return arr[hash].getValue();
     }
+
   }
+
+  // kiem tra xem mang co phan tu khong
 
   @Override
   public boolean isEmpty() {
     // TODO Auto-generated method stub
-    return numberOfEntry==0;
+    return numberOfEntry == 0;
   }
 
   @Override
   public void put(Key key, Value value) {
-    if(containsKey(key)) {
-      // tim vi tri
-      int hash = (key.hashCode()% this.capacity);
+    // TODO Auto-generated method stub
+    if (containsKey(key)) {
+      int hash = (key.hashCode()) & (this.capacity - 1);
       arr[hash] = new Entry<>(key, value);
-    }
-    else {
-      int hash = calculateHash(key);
+      numberOfEntry++;
+    } else {
+      // phai su dung ham tinhtoanhash de kiem tra colision
+      int hash = tinhToanHash(key);
       arr[hash] = new Entry<>(key, value);
       numberOfEntry++;
     }
-    
+
   }
 
   @Override
   public Value remove(Key key) {
-    // TODO Auto-generated method stub
     Value result = get(key);
-    if(result != null) {
-      int index = calculateHash(key);
-      arr[index] = null;
+    if (result != null) {
+      int hash = (key.hashCode()) & (this.capacity - 1);
+      arr[hash] = null;
       numberOfEntry--;
-      index =(index+1) % this.capacity;
-      while(arr[index] != null) {
-        Entry<Key, Value> entry =arr[index];
-        arr[index] = null;
+      hash = (hash + 1) & (this.capacity - 1);
+
+      while (arr[hash] != null) {
+        Entry<Key, Value> entry = arr[hash];
+        arr[hash] = null;
         put(entry.getKey(), entry.getValue());
         numberOfEntry--;
-        index =(index +1)% this.capacity;
+        hash = (hash + 1) & (this.capacity - 1);
       }
+
     }
-    return result;
+    // TODO Auto-generated method stub
+    return null;
   }
 
   @Override
@@ -104,15 +115,16 @@ public class HashMap<Key,Value>  implements Map<Key, Value>{
     // TODO Auto-generated method stub
     return numberOfEntry;
   }
-  
-  // tinh toan hashvalue cua key
-  private int calculateHash(Key key ) {
-   int hash = (key.hashCode()) & (this.capacity - 1);
-   while(arr[hash]!= null && !arr[hash].getKey().equals(key)) {
-     hash = (hash+1) % this.capacity;
-   }
-   
-   
-  return hash;
-}
+
+  private int tinhToanHash(Key key) {
+    // thu gon so nho lai
+    int hash = (key.hashCode()) & (this.capacity - 1);
+    // kiem tra colision
+    while (arr[hash] != null && !arr[hash].getKey().equals(key)) {
+      hash = (hash + 1) & (this.capacity - 1);
+
+    }
+    return hash;
+  }
+
 }

@@ -5,7 +5,7 @@ import java.util.ListIterator;
 
 public class LinkedListPlayGround {
 public static void main(String[] args) {
-  
+  test();
   LinkedList<String> listt = new LinkedList<String>();
   LinkedList<String> lis = new LinkedList<String>();
 
@@ -15,7 +15,7 @@ public static void main(String[] args) {
   listt.add("kiki");
   listt.add("sfsf");
   listt.add("sfff");
-  listt.add(3, "hihi");
+ 
  
   
   System.out.println(listt.size());
@@ -148,6 +148,17 @@ public static void main(String[] args) {
 	
 	
 }
+public static void test() {
+  // hai cái này trả về 1 vị trí
+  System.out.println("ad".hashCode());
+  System.out.println("at".hashCode());
+
+  int n = 16;
+// int hash=3107;
+  int hash= 3123;
+ int index = hash & (n-1);
+ System.out.println("vi tri :"+index);
+}
    public static void showList(java.util.LinkedList<String> list) {
 	   for(String obj :list) {
 		   System.out.println("\t" +obj+",");
@@ -155,5 +166,6 @@ public static void main(String[] args) {
 	   }
 	   System.out.println();
    }
+   
 	
 	}

@@ -7,6 +7,7 @@ import java.util.ListIterator;
 
 public class ArrayListPlayGround {
 	public static void main(String[] args) {
+	
 		
 		ArrayList<String> li = new ArrayList<>();
 		li.add("thnag");
