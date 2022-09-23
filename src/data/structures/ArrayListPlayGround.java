@@ -7,13 +7,16 @@ import java.util.ListIterator;
 
 public class ArrayListPlayGround {
 	public static void main(String[] args) {
-	
+
 		
 		ArrayList<String> li = new ArrayList<>();
 		li.add("thnag");
 		li.add("tao");
-		li.add("tam");
-		li.add("tam");
+		
+		li.add("sff");
+		li.add("sf");
+		li.add(1, "jojo");
+		
 		System.out.println(li.size());
 		for(int i=0; i<li.size();i++) {
 		  System.out.println("phan tu "+i+":"+li.get(i));

@@ -50,5 +50,37 @@ public class HashSetExample {
    
    
   }
+  @Test
+  public void testHashmap3() throws Exception{
+    HashSet<String > sett = new  HashSet<String>();
+    sett.add("thang");
+    sett.add("hien");
+    sett.add("kien");
+    sett.add("ha");
+    
+    HashSet<String > set2 = new  HashSet<String>();
+    set2.add("thang");
+    set2.add("hien");
+    set2.add("kien");
+    set2.add("ad");
+    
+    //test kiem tra 2 set
+//    assertEquals(true, set2.containsAll(sett));
+    
+   set2.clear();
+   assertEquals(true, set2.isEmpty());
+    
+    
+    
+  }
+  @Test
+  // test set java util\
+  public void testHashMap4() throws Exception{
+    HashSet<String> set = new HashSet<>();
+    set.add("h1");
+    set.add("tam");
+    set.add("may");
+    assertEquals(true, set.contains("h1"));
+  }
   
 }

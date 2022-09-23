@@ -31,29 +31,29 @@ public class HashSet<E> implements Set<E>{
   }
   public HashSet(int initialCapacity , float loadFactor, boolean dummy) {
     map = new LinkedHashMap<>(initialCapacity,loadFactor);
+ 
   }
-  
+
   @Override
   public boolean add(E obj) {
     // TODO Auto-generated method stub
     map.put(obj, PRESENT);
     return true;
   }
+  
 
   @Override
   public boolean allAll(E[] obj) {
     // TODO Auto-generated method stub
-    for(E o :obj) {
+    for (E o : obj) {
       map.put(o, PRESENT);
     }
-    return true;
+    return false;
   }
 
   @Override
   public void clear() {
-    // TODO Auto-generated method stub
     map.clear();
-    
   }
 
   @Override
@@ -65,16 +65,8 @@ public class HashSet<E> implements Set<E>{
   @Override
   public boolean remove(E obj) {
     // TODO Auto-generated method stub
-    return map.remove(obj)==PRESENT ;
-  }
-
- 
-
-  @Override
-  public boolean contains(E obj) {
-    // TODO Auto-generated method stub
-    map.containsKey(obj);
-    return true;
+    
+    return map.remove(obj)==PRESENT;
   }
 
   @Override
@@ -84,21 +76,26 @@ public class HashSet<E> implements Set<E>{
   }
 
   @Override
-  public int hashCode(E obj) {
+  public boolean contains(E obj) {
     // TODO Auto-generated method stub
-     
-    
-    return  (obj.hashCode())% map.size();
-  }
-
-  @Override
-  public boolean containsAll(E[] obj) {
-    // TODO Auto-generated method stub
-    for( E o :obj) {
-      contains(o);
+    if(map.get(obj).equals(obj)) {
+      return true;
     }
     return false;
   }
+
+  
+  @Override
+  public boolean containsAll(E[] obj) {
+    // TODO Auto-generated method 
+    for (E o : obj) {
+     if(map.get(obj).equals(o)) {
+       return true;
+     }
+    }
+    return false;
+  }
+
 
   
 }

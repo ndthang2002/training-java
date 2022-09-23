@@ -14,5 +14,5 @@ public interface Set<E>  {
   int size();
   boolean contains(E obj);
   boolean containsAll(E[] obj);
-  int hashCode(E obj);
+  
 }
