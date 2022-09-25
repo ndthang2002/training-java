@@ -16,7 +16,7 @@ public class ArrayListPlayGround {
 		li.add("sff");
 		li.add("sf");
 		li.add(1, "jojo");
-		
+		li.remove();
 		System.out.println(li.size());
 		for(int i=0; i<li.size();i++) {
 		  System.out.println("phan tu "+i+":"+li.get(i));

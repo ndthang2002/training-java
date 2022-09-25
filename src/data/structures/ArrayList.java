@@ -137,6 +137,8 @@ public class ArrayList<T> implements List<T> {
   @Override
   public T remove() {
     // TODO Auto-generated method stub
+    T[] newArray = (T[]) new Object[arr.length +1];
+    
     return null;
   }
  
