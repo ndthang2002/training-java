@@ -3,7 +3,7 @@ package javas.oop;
 public class Break {
 
   public static void main(String[] args) {
-    
+System.out.println(Array.hihi);    
     int i;
     for(i=1;i<4;i++) {
       one:{

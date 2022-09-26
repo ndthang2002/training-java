@@ -80,12 +80,20 @@ public class ForIf {
         System.out.println("haidhuasd"+i);
       }
       
-      for (i=0; i<10;i++) {
+      for (; i<10;i++) {
         System.out.println(i+"");
         if(i%2==0)  continue;// bỏ qua dòng lệnh bên dưới 
          
         System.out.println(i+"sdfjdf");
       }
+      
+      for (i=0;i<10;i++) {
+      int hihi = i==5?4/2:0;
+      System.out.println(hihi);
+      }
+      
+    
+
   }
   
 }

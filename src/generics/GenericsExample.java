@@ -2,6 +2,8 @@ package generics;
 
 import java.util.ArrayList;
 
+import javas.oop.HelpJavas;
+
 public class GenericsExample {
 
 	public static void main(String[] args) {
@@ -10,6 +12,7 @@ public class GenericsExample {
 		
 		Printer<Double> doubleprinter = new Printer<>(33.5);
 		doubleprinter.print();
+		
 		
 		
 	}
