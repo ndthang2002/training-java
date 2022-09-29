@@ -6,7 +6,7 @@ public class LinkedList<T> implements List<T> {
 
   protected Node<T> head;
   protected Node<T> tail;
-  private int currSize;
+  protected int     currSize;
 
   public LinkedList() {
     this.head = null;
@@ -14,8 +14,8 @@ public class LinkedList<T> implements List<T> {
     this.currSize = 0;
   }
 
-  public LinkedList(T[] obj) {
-    addAll(obj);
+  public LinkedList(T[] arr) {
+    addAll(arr);
   }
 
   @Override
@@ -27,30 +27,50 @@ public class LinkedList<T> implements List<T> {
   @Override
   public void clear() {
     // TODO Auto-generated method stub
-    Node<T> currNode = head;
-    while (currNode != null) {
-      Node<T> nextNode = currNode.getNext();
-      currNode.setNext(null);
-      currNode.setValue(null);
-      
-      currNode = nextNode;
-
+    Node<T> cuNode = head;
+    while (cuNode != null) {
+      Node<T> nextNode = cuNode.getNext();
+      cuNode.setNext(null);
+      cuNode.setValue(null);
+      cuNode = nextNode;
     }
     head = tail = null;
     currSize = 0;
-
   }
 
   @Override
   public boolean add(T obj) {
+    // TODO Auto-generated method stub
     if (head == null) {
       head = new Node<T>(obj);
       tail = head;
     } else {
-      Node<T> newTailNode = new Node<T>(obj);
-      tail.setNext(newTailNode);
-      tail = newTailNode;
+      Node<T> newNode = new Node<T>(obj);
+
+      tail.setNext(newNode);
+      tail = newNode;
     }
+    currSize++;
+    return true;
+  }
+
+  @Override
+  public boolean add(int index, T obj) {
+    if (index >= currSize) {
+      throw new IllegalArgumentException(" loi vi tri");
+    }
+    // TODO Auto-generated method stub
+    int idex = 1;
+    Node<T> curNode = head;
+    while (idex < index && curNode != null) {
+      curNode = curNode.getNext();
+      idex++;
+    }
+    Node<T> nextNode = curNode.getNext();
+    Node<T> newNode = new Node<>(obj);
+
+    curNode.setNext(newNode);
+    newNode.setNext(nextNode);
     currSize++;
     return true;
   }
@@ -66,117 +86,96 @@ public class LinkedList<T> implements List<T> {
   @Override
   public boolean remove(T obj) {
     // TODO Auto-generated method stub
-    int index = findPos(obj);
-    if (index == -1) {
-      throw new IllegalArgumentException("khong tim thay phan tu ");
-    }
-    removeAt(index);
-    currSize--;
+    int pos = findPos(obj);
+    removeAt(pos);
+
     return true;
   }
 
   @Override
   public T removeAt(int pos) {
     // TODO Auto-generated method stub
-    if (pos <= 0 || pos >= currSize) {
-      throw new IllegalArgumentException();
+    if (head == null) {
+      throw new IllegalArgumentException(" chuoi trong");
 
     }
+    if (pos < 0 || pos > currSize) {
+      throw new IllegalArgumentException("vi tri khong ton tai");
 
-    Node<T> nodeHienTai = head;
-    Node<T> nodeTruocDo = head;
-
-    for (int i = 0; i < pos && nodeHienTai != null; i++) {
-      nodeTruocDo = nodeHienTai;
-      nodeHienTai = nodeHienTai.getNext();
     }
-
-    T val = nodeHienTai.getValue();
-    nodeTruocDo.setNext(nodeHienTai.getNext());
+    Node<T> currNode = head;
+    Node<T> preNode = head;
+    for (int i = 0; i < pos && currNode != null; i++) {
+      preNode = currNode;
+      currNode = currNode.getNext();
+    }
+    T val = currNode.getValue();
+    preNode.setNext(currNode.getNext());
     currSize--;
-
     return val;
+  }
+
+  @Override
+  public T remove() {
+    // TODO Auto-generated method stub
+    if (head == null) {
+      throw new IllegalStateException("The Linked List is empty and there are no element to remove!");
+    }
+    head = head.getNext();
+    currSize--;
+    return head.getValue();
   }
 
   @Override
   public T get(int pos) {
     // TODO Auto-generated method stub
-    if (pos < 0 || pos > currSize || head == null) {
-      throw new IllegalArgumentException("loi");
+    if (head == null) {
+      throw new IllegalArgumentException(" chuoi ko ton tai");
+    } else if (pos < 0 || pos > currSize) {
+      throw new IllegalArgumentException(" chi so khong phu hop");
+
     }
+
     Node<T> currNode = head;
     int index = 0;
-    ;
-    while (index != pos) {
+    while (index < pos) {
       currNode = currNode.getNext();
       index++;
     }
-
     return currNode.getValue();
   }
 
   @Override
   public void set(int pos, T obj) {
     // TODO Auto-generated method stub
-    Node<T> node = head;
-    for (int i = 0; i < pos && node != null; i++) {
-      node = node.getNext();
+    Node<T> cuNode = head;
+    int index = 0;
+    while (index < pos && cuNode != null) {
+      cuNode = cuNode.getNext();
+      index++;
     }
-    node.setValue(obj);
+
+    cuNode.setValue(obj);
   }
 
   @Override
   public int findPos(T obj) {
     // TODO Auto-generated method stub
-    Node<T> nodeDau = head;
-    int index = 0;
-    while (nodeDau != null) {
-      if (nodeDau.getValue().equals(obj)) {
-        return index;
+    int pos = 0;
+    if (head == null) {
+      throw new IllegalArgumentException("lien ket khong ton tai");
+    } else {
+      Node<T> cuNode = head;
+      while (cuNode != null) {
+        if (cuNode.getValue().equals(obj)) {
+          return pos;
+        }
+        cuNode = cuNode.getNext();
+        pos++;
       }
-      nodeDau = nodeDau.getNext();
-      index++;
     }
+
     return -1;
-  }
-
-  /*
-   * // static protected class Node<T>{ // T value; // Node<T> next; // Node<T>
-   * prev; // //contrucstor // // public Node(T obj) { // this.value = obj; //
-   * this.next=null; // }; // // public T getValue() {return value;}; // public
-   * void setValue(T value) { this.value=value;}; // public Node<T> getNext() {
-   * return next;} // public void setNext(Node<T> next) {this.next=next;}; //
-   * public Node<T> getPrev(){return prev;}; // public void setPrev(Node<T> prev)
-   * {this.prev=prev;} // }
-   */
-  @Override
-  public T remove() {
-    T val = head.getValue();
-    head = head.getNext();
-    currSize--;
-    return val;
-  }
-
-  @Override
-  public boolean add(int index, T obj) {
-    // TODO Auto-generated method stub
-    if(head==null) {
-      head = new Node<T>(obj);
-      tail = head;
-    }
-    else {
-      
-       Node<T> currNode = head;
-    for (int i=0 ;i<index && currNode != null; i++) {
-      currNode = currNode.getNext();
-    }
-    Node<T> newNode = new Node<T>(obj);
-    Node<T> nextNode = currNode.getNext();
-    
-    }
-    currSize++;
-    
-    return true;
   }
 
 }

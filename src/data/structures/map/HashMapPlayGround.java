@@ -17,20 +17,17 @@ public class HashMapPlayGround {
 
     mapp.put("toi", "thang");
     mapp.put("thang", "long");
-
     mapp.put("thang", "sdfd");
     mapp.put("ad", "hihi");
-    mapp.put("at", "koko");
-    mapp.put("haha", "koko");
-    mapp.remove("ad");
-    assertEquals("koko", mapp.get("haha"));
+    
+    
+   
 //  mapp.clear();
 //  assertEquals(0, mapp.size());
     assertTrue(mapp.containsKey("toi"));
 
     // test
-    assertEquals("hihi", mapp.get("ad"));
-    assertEquals("koko", mapp.get("at"));
+//    assertEquals("hihi", mapp.get("ad"));
 
     // test function size
     assertEquals(4, mapp.size());
@@ -39,8 +36,9 @@ public class HashMapPlayGround {
     assertFalse("khong tim thay", mapp.containsKey("thanvxbdb"));
 
     // test containsvalue
-    assertTrue("tim thay ", mapp.containsValue("long"));
-    assertFalse("tim thay", mapp.containsValue("longsafga"));
+    assertEquals(false, mapp.containsValue("long"));
+//    assertTrue("tim thay ", mapp.containsValue("long"));
+    assertFalse("tim thay", mapp.containsValue("long"));
 
     // test isEmpty
     assertFalse(mapp.isEmpty());
