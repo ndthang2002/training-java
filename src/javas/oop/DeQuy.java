@@ -15,7 +15,7 @@ public class DeQuy {
 class Factorial {
   int factR(int n) {
     int result;
-    if (n == 1) {
+    if (n == 0) {
       return 1;
     }
     result = factR(n - 1) * n;

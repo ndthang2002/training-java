@@ -12,11 +12,13 @@ public class HashTable<Key ,Value> implements Map<Key, Value>{
    public HashTable() {
      this.capatial=11;
    }
+   
    public HashTable(int initialcapital) {
      this.capatial= initialcapital;
      arr = new Entry[this.capatial];
      this.numberofEntry=0;
    }
+   
   @Override
   public void clear() {
     // TODO Auto-generated method stub

@@ -13,11 +13,12 @@ public interface Tree<T> {
   
   boolean contains(T obj);
   
+
   class Node<T>{
-    private Node<T> left;
-    private Node<T> right;
-    private Node<T> parent;
-    private T item;
+     Node<T> left;
+     Node<T> right;
+     Node<T> parent;
+     T item;
     
     Node(T item){
       this.item = item;
