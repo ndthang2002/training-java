@@ -9,7 +9,7 @@ public class StringExample {
   public static void main(String[] args) {
 StringFormat();
     //
-     
+methodString();
       
   }
   static void StringFormat() {
@@ -39,7 +39,7 @@ StringFormat();
     System.out.println(hihi.charAt(3));
     System.out.println(hihi.contains("t"));
     System.out.println(hihi.compareTo("tdd"));
-    System.out.println(hihi.valueOf(4));
+    System.out.println(hihi.valueOf(5));
     System.out.println(chuoi);
   }
 
