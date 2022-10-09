@@ -1,5 +1,7 @@
 package data.structures;
 
+
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
@@ -9,6 +11,8 @@ import java.util.Iterator;
 import java.util.ListIterator;
 
 import org.junit.Test;
+
+
 
 public class ArrayListPlayGround {
   @Test
