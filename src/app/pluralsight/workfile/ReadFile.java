@@ -10,14 +10,16 @@ public class ReadFile {
 
   public static void main(String[] args) throws IOException {
     
-    Path path = Paths.get("C:\\dev\\tools\\workspace\\training-java\\src\\app\\pluralsight\\workfile\\ReadFile.java");
+    Path path = Path.of("C:\\dev\\tools\\workspace\\training-java\\src\\app\\pluralsight\\workfile\\files\\demo.txt");
      boolean check = Files.exists(path);
-    BufferedReader reader = Files.newBufferedReader(path);
-    
-    String line = reader.readLine();
-    while ( line!=null) {
-      System.out.println(line);
-      line = reader.readLine();
-    }
+  System.out.println(check);
+  BufferedReader reader = Files.newBufferedReader(path);
+  String line = reader.readLine();
+ 
+  while(line !=null) {
+    System.out.println(line);
+    line = reader.readLine();
+  }
+  
   }
 }
