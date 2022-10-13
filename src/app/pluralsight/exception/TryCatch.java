@@ -28,6 +28,7 @@ public class TryCatch {
       reader = new BufferedReader(new FileReader(
           "C:\\dev\\tools\\workspace\\training-java\\src\\app\\pluralsight\\exception\\democalculation.txt"));
       processFile(reader);
+      // ngoai le chi tiet
     } catch (FileNotFoundException ef) {
       System.out.println("File not found :" + args[0]);
     } catch (IOException ex) {
@@ -59,7 +60,6 @@ public class TryCatch {
       System.out.println(ex.getMessage()+" - " +inputString);
       writevalidStatementExceptionToLog(ex, inputString);
       }
-  
   }
   static void writevalidStatementExceptionToLog(InvalidStatementException ex , String inputLine) {
     System.out.println("");

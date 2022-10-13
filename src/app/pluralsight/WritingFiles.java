@@ -14,10 +14,10 @@ public class WritingFiles {
 	public static void main(String[] args) throws IOException  {
 		
 		Path path = Path.of("E:\\thang.txt");
-		 BufferedWriter writer = Files.newBufferedWriter(path);
+		BufferedWriter writer = Files.newBufferedWriter(path);
 		String text ="anh la thang ne";
 		writer.write(text);
-			writer.close();	
+		writer.close();	
 		System.out.println("Done!");
 	    
 	}
