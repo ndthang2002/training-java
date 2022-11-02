@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -13,7 +14,6 @@ public class CSVFileAnlaysis {
   public static void main(String[] args) {
     
     Path path =Path.of("C:\\dev\\tools\\workspace\\training-java\\src\\app\\pluralsight\\workfile\\files\\data.csv");
-    
 //    try (BufferedReader reader =Files.newBufferedReader(path)){
 //      String line = reader.readLine();
 //      while(line !=null) {

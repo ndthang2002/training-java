@@ -15,7 +15,7 @@ public class WalkPattern {
      
      Stream<Path> stream = Files.walk(path);
      //dem folder va file
-     long count =stream.count();
+     long count = stream.count();
      // dem folder
      long countDirs =
      Files.walk(path)
@@ -30,7 +30,6 @@ public class WalkPattern {
          Files.walk(path)
          .filter(Files::isRegularFile)
          .count();
-     
      
      System.out.println("count =" +count);
      System.out.println("count  dirs=" + countDirs);

@@ -17,8 +17,7 @@ public class WalkFileTreePattern {
     var visitor =  new FileVisitor<Path>() {
     private long countFiles =0L;
     private long countDirs =0L;
-    
-    
+      
       @Override
       public FileVisitResult
       preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
