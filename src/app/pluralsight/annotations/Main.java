@@ -5,7 +5,11 @@ import java.util.Scanner;
 
 public class Main {
  public static void main(String[] args) {
+<<<<<<< HEAD
    
+=======
+  
+>>>>>>> 90d6fe93bc7049cb44c548e5602cea48532ec4ca
    System.out.println("rnter an operation and two numbers:");
    Scanner scanner = new Scanner(System.in);
    String userInput = scanner.nextLine();
@@ -19,7 +23,11 @@ public class Main {
 }
  private static void process(String keyword ,double leftVal , double rightVal) {
    MathProcessing processor = retrieveProcessor(keyword);
+<<<<<<< HEAD
    
+=======
+  
+>>>>>>> 90d6fe93bc7049cb44c548e5602cea48532ec4ca
    
    double  result = ((MathProcessing)processor).doCalculation(leftVal, rightVal);
    

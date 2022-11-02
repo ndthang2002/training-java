@@ -1,8 +1,12 @@
 package app.pluralsight.annotations;
 
+<<<<<<< HEAD
 
 public class Person implements Comparable<Person>{
   
+=======
+public class Person implements Comparable<Person>{
+>>>>>>> 90d6fe93bc7049cb44c548e5602cea48532ec4ca
  private String name;
  private int age;
  
