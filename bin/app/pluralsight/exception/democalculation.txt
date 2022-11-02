@@ -1,4 +1,0 @@
-add 4 four
-subtract eight 
-multiply seven 6
-divide 6 10
